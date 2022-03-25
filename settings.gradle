@@ -1,0 +1,30 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "RingTonePicker"
+include ':app'
+include ':core'
+include ':features'
+include ':core:baseData'
+include ':core:baseUI'
+include ':core:baseDomain'
+include ':core:navigator'
+include ':features:search'
+include ':features:search:data'
+include ':features:search:domain'
+include ':features:search:ui'
+include ':features:track'
+include ':features:track:domain'
+include ':features:track:data'
+include ':features:track:ui'

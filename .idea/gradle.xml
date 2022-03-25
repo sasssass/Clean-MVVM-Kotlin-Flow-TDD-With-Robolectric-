@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/baseData" />
+            <option value="$PROJECT_DIR$/core/baseDomain" />
+            <option value="$PROJECT_DIR$/core/baseUI" />
+            <option value="$PROJECT_DIR$/core/navigator" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/search" />
+            <option value="$PROJECT_DIR$/features/search/data" />
+            <option value="$PROJECT_DIR$/features/search/domain" />
+            <option value="$PROJECT_DIR$/features/search/ui" />
+            <option value="$PROJECT_DIR$/features/track" />
+            <option value="$PROJECT_DIR$/features/track/data" />
+            <option value="$PROJECT_DIR$/features/track/domain" />
+            <option value="$PROJECT_DIR$/features/track/ui" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

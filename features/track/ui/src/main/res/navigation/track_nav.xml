@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/track_nav"
+    app:startDestination="@id/detailFragment">
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="ir.track.ui.fragment.main.DetailFragment"
+        android:label="DetailFragment">
+        <argument android:name="id" app:argType="integer"/>
+    </fragment>
+</navigation>

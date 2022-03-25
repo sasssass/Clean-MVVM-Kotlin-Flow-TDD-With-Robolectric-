@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_navigation.xml"
+    app:startDestination="@id/search_nav">
+
+    <include app:graph="@navigation/search_nav" />
+
+    <include app:graph="@navigation/track_nav" />
+
+    <action
+        android:id="@+id/global_action_to_search_nav"
+        app:destination="@id/search_nav"/>
+
+    <action
+        android:id="@+id/global_action_to_track_nav"
+        app:destination="@id/track_nav"/>
+
+</navigation>

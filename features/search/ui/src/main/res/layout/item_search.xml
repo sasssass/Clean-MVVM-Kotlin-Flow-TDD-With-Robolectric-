@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ext="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="song"
+            type="ir.search.domain.model.SearchModelData" />
+        <import type="kotlin.jvm.functions.Function0"/>
+        <import type="kotlin.Unit"/>
+        <import type="ir.search.domain.model.SearchModelData"/>
+        <variable
+            name="navigate"
+            type="Function0&lt;Unit>"/>
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ext:click='@{navigate}'
+        android:padding="8dp">
+        <ir.sass.baseui.util.LottieImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:url='@{song.album.cover}'/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|start"
+                android:text='@{song.title}'
+                android:textSize="18sp"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/txt_artist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|start"
+                android:textSize="14sp"
+                android:text='@{song.artist.name}'
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

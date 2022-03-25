@@ -1,0 +1,106 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.4.1"
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.40.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+
+plugins {
+    id 'com.android.application' version '7.1.2' apply false
+    id 'com.android.library' version '7.1.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.5.30' apply false
+    id 'org.jetbrains.kotlin.jvm' version '1.5.30' apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+
+ext{
+    lib_version = [
+            hilt:"2.38.1",
+            retrofit:"2.9.0",
+            coroutines:"1.3.9",
+            appcompat:"1.4.1",
+            androidCore:"1.7.0",
+            material:"1.5.0",
+            navigation:"2.4.1",
+            lifecycle:"2.4.0-alpha03",
+            inject:"1",
+            fragment:"1.3.0",
+            lottie:"3.7.1",
+            glide:"4.12.0",
+            paging:"3.1.1",
+            robolectric:"4.7.3",
+            junit:"4.+",
+            androidTest:"1.1.3",
+            mockitoTest:"3.0.0",
+            nhaarmanMockito:"2.1.0",
+            coroutinesTest:"1.6.0",
+            coreTest:"2.1.0",
+            turbine:"0.7.0",
+            fragmentTest:"1.4.1",
+            espresso:"3.4.0"
+    ]
+    lib = [
+            appcompat:"androidx.appcompat:appcompat:${lib_version.appcompat}",
+            androidCore:"androidx.core:core-ktx:${lib_version.androidCore}",
+            hilt:"com.google.dagger:hilt-android:${lib_version.hilt}",
+            retrofit:[
+                    "com.squareup.retrofit2:retrofit:${lib_version.retrofit}",
+                    "com.squareup.retrofit2:converter-gson:${lib_version.retrofit}"
+            ],
+            material:"com.google.android.material:material:${lib_version.material}",
+            navigation:[
+                    "androidx.navigation:navigation-fragment-ktx:${lib_version.navigation}",
+                    "androidx.navigation:navigation-ui-ktx:${lib_version.navigation}"
+            ],
+            coroutines:"org.jetbrains.kotlinx:kotlinx-coroutines-android:${lib_version.coroutines}",
+            lifecycle:[
+                    "androidx.lifecycle:lifecycle-viewmodel-ktx:${lib_version.lifecycle}",
+                    "androidx.lifecycle:lifecycle-livedata-ktx:${lib_version.lifecycle}",
+                    "androidx.lifecycle:lifecycle-runtime-ktx:${lib_version.lifecycle}",
+                    "androidx.lifecycle:lifecycle-viewmodel-savedstate:${lib_version.lifecycle}"
+            ],
+            inject:"javax.inject:javax.inject:${lib_version.inject}",
+            fragment:"androidx.fragment:fragment-ktx:${lib_version.fragment}",
+            lottie:"com.airbnb.android:lottie:${lib_version.lottie}",
+            glide:"com.github.bumptech.glide:glide:${lib_version.glide}",
+            paging:"androidx.paging:paging-runtime:${lib_version.paging}"
+    ]
+    kaptLibs = [
+            glide:"com.github.bumptech.glide:compiler:${lib_version.glide}",
+            hilt:"com.google.dagger:hilt-compiler:${lib_version.hilt}"
+    ]
+
+    testLib = [
+            hilt:"com.google.dagger:hilt-android-testing:${lib_version.hilt}",
+            robolectric:"org.robolectric:robolectric:${lib_version.robolectric}",
+            junit:"junit:junit:${lib_version.junit}",
+            androidTest:"androidx.test.ext:junit-ktx:${lib_version.androidTest}",
+            coroutinesTest:"org.jetbrains.kotlinx:kotlinx-coroutines-test:${lib_version.coroutinesTest}",
+            mockito:[
+                    "org.mockito:mockito-inline:${lib_version.mockitoTest}",
+                    "com.nhaarman.mockitokotlin2:mockito-kotlin:${lib_version.nhaarmanMockito}"
+            ],
+            coreTest:"androidx.arch.core:core-testing:${lib_version.coreTest}",
+            turbine:"app.cash.turbine:turbine:${lib_version.turbine}",
+            fragmentTest:"androidx.fragment:fragment-testing:${lib_version.fragmentTest}",
+            espresso:"androidx.test.espresso:espresso-core:${lib_version.espresso}"
+
+    ]
+    katpTestLib = [
+            hilt:"com.google.dagger:hilt-android-compiler:${lib_version.hilt}"
+    ]
+}

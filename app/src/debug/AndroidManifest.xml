@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ir.sass.ringtonepicker">
+    <application>
+        <activity
+            android:name="ir.sass.ringtonepicker.HiltAndroidActivityTest"
+            android:exported="true" />
+    </application>
+</manifest>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:ext="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="ir.search.ui.fragment.main.SearchFragmentViewModel" />
+        <variable
+            name="adapter"
+            type="ir.sass.baseui.MotherAdapter" />
+        <import type="kotlin.jvm.functions.Function0"/>
+        <import type="kotlin.Unit"/>
+        <variable
+            name="goToHelp"
+            type="Function0&lt;Unit>"/>
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adapter='@{adapter}'
+            ext:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_weight="1"/>
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text='@={viewModel.textInput}'
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                ext:active='@{viewModel.activeButton.booleanValue()}'
+                ext:click='@{() -> viewModel.search()}'
+                android:text="Search"/>
+            <ImageView
+                android:id="@+id/btn_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_help"
+                ext:click='@{goToHelp}'/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ext="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="kotlin.jvm.functions.Function0"/>
+        <import type="kotlin.Unit"/>
+
+        <variable
+            name="viewModel"
+            type="ir.track.ui.fragment.main.DetailFragmentViewModel" />
+
+        <variable
+            name="getPermissionAndDownload"
+            type="Function0&lt;Unit>"/>
+
+        <import type="ir.track.domain.model.PlayState"/>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ir.sass.baseui.util.LottieImageView
+            android:id="@+id/img_artist"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:url='@{viewModel.data.album.cover}'
+            app:layout_constraintEnd_toStartOf="@+id/img_album"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ir.sass.baseui.util.LottieImageView
+            android:id="@+id/img_album"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:url='@{viewModel.data.artist.picture}'
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/img_artist"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text='@{"Title :"+  viewModel.data.title}'
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <TextView
+            android:id="@+id/txt_album"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text='@{"Album :"+  viewModel.data.album.title}'
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+        <TextView
+            android:id="@+id/txt_artist"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text='@{"Artis :"+  viewModel.data.artist.name}'
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_album" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="150dp" />
+
+        <ImageView
+            android:id="@+id/btn_download"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_download"
+            ext:click='@{getPermissionAndDownload}'
+            ext:active='@{viewModel.isActive}'/>
+
+        <ImageView
+            android:id="@+id/btn_play"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:image='@{viewModel.playState == PlayState.PLAYING ? @drawable/ic_pause : @drawable/ic_play}'
+            ext:click='@{() -> viewModel.play()}'
+            ext:active='@{viewModel.isActive}'/>
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max='@{viewModel.duration}'
+            android:progress='@{viewModel.currentTime}'
+            android:layout_marginBottom="120dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

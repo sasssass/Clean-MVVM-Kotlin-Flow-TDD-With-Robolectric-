@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.7">
+      <module name="RingTonePicker.app" target="11" />
+      <module name="RingTonePicker.core.baseData" target="11" />
+      <module name="RingTonePicker.core.baseUI" target="11" />
+      <module name="RingTonePicker.core.navigator" target="11" />
+      <module name="RingTonePicker.core.test" target="11" />
+      <module name="RingTonePicker.features.detail.ui" target="11" />
+      <module name="RingTonePicker.features.search.data" target="11" />
+      <module name="RingTonePicker.features.search.ui" target="11" />
+      <module name="RingTonePicker.features.track.data" target="11" />
+      <module name="RingTonePicker.features.track.ui" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
